@@ -1,0 +1,13 @@
+language: rust
+rust:
+  - nightly
+  - beta
+  - stable
+env:
+  - GTK=3.4
+addons:
+  apt:
+    packages:
+    - libgtk-3-dev
+script:
+  - cargo build
