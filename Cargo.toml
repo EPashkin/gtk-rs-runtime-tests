@@ -3,3 +3,9 @@ name = "gtk-rs-runtime-tests"
 version = "0.1.0"
 authors = ["Evgenii Pashkin <eapashkin@gmail.com>"]
 license = "MIT"
+
+[dependencies.gtk]
+git = "https://github.com/gtk-rs/gtk"
+
+[dependencies.gtk-sys]
+git = "https://github.com/gtk-rs/sys"
