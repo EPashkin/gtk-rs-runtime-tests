@@ -5,7 +5,6 @@ use gtk::{BoxExt, Button, ContainerExt, PackType};
 use gtk::Orientation::Vertical;
 
 #[test]
-#[cfg(windows)]
 fn child_properties() {
     gtk::init().unwrap();
 

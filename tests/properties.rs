@@ -5,7 +5,6 @@ use gtk::prelude::*;
 use gtk::*;
 
 #[test]
-#[cfg(windows)]
 fn properties() {
     gtk::init().unwrap();
 
