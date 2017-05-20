@@ -33,7 +33,8 @@ fn properties() {
     //utf8
     assert_eq!(None, combobox.get_property_tearoff_title());
     combobox.set_property_tearoff_title(Some("test"));
-    assert_eq!(Some("test".to_owned()), combobox.get_property_tearoff_title());
+    assert_eq!(Some("test".to_owned()),
+               combobox.get_property_tearoff_title());
 
     //enum ArrowType
     assert_eq!(ArrowType::Down, arrow.get_property_arrow_type());
