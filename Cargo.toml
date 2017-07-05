@@ -6,6 +6,7 @@ license = "MIT"
 
 [dependencies.gtk]
 git = "https://github.com/gtk-rs/gtk"
+features = ["v3_18"]
 
 [dependencies.glib]
 git = "https://github.com/gtk-rs/glib"
