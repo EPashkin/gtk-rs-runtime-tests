@@ -1,3 +1,4 @@
+extern crate glib;
 extern crate gtk;
 extern crate gtk_sys as ffi;
 
@@ -24,6 +25,8 @@ fn properties() {
     assert_eq!(0, align.get_property_bottom_padding());
     align.set_property_bottom_padding(10);
     assert_eq!(10, align.get_property_bottom_padding());
+    let bottom_padding = align.get_property("bottom-padding").unwrap();
+    assert_eq!(10u32, bottom_padding.get().unwrap());
 
     //gboolean
     assert_eq!(true, combobox.get_property_has_frame());
@@ -40,6 +43,12 @@ fn properties() {
     assert_eq!(ArrowType::Down, arrow.get_property_arrow_type());
     arrow.set_property_arrow_type(ArrowType::Up);
     assert_eq!(ArrowType::Up, arrow.get_property_arrow_type());
+    //by get_property
+    let arrow_type = arrow.get_property("arrow-type").unwrap();
+    assert_eq!(ArrowType::Up, arrow_type.get().unwrap());
+    //by set_property
+    assert!(arrow.set_property("arrow-type", &ArrowType::Down).is_ok());
+    assert_eq!(ArrowType::Down, arrow.get_property_arrow_type());
 
     //object get
     assert_eq!(Some(cell_area), combobox.get_property_cell_area());
