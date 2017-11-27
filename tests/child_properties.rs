@@ -1,7 +1,9 @@
+extern crate gdk;
 extern crate gtk;
 extern crate gtk_sys as ffi;
 
-use gtk::{BoxExt, Button, ContainerExt, PackType};
+use gdk::ModifierType;
+use gtk::{BoxExt, Button, CellRendererAccel, CellRendererAccelExt, ContainerExt, PackType};
 use gtk::Orientation::Vertical;
 
 #[test]
@@ -26,4 +28,11 @@ fn child_properties() {
     assert_eq!(PackType::Start, vbox.get_child_pack_type(&button));
     vbox.set_child_pack_type(&button, PackType::End);
     assert_eq!(PackType::End, vbox.get_child_pack_type(&button));
+
+    //flags Gdk.ModifierType
+    let accel = CellRendererAccel::new();
+    let flags = ModifierType::SHIFT_MASK | ModifierType::CONTROL_MASK;
+    assert_eq!(ModifierType::empty(), accel.get_property_accel_mods());
+    accel.set_property_accel_mods(flags);
+    assert_eq!(flags, accel.get_property_accel_mods());
 }

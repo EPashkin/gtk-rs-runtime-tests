@@ -8,6 +8,9 @@ license = "MIT"
 git = "https://github.com/gtk-rs/gtk"
 features = ["v3_18"]
 
+[dependencies.gdk]
+git = "https://github.com/gtk-rs/gdk"
+
 [dependencies.glib]
 git = "https://github.com/gtk-rs/glib"
 
