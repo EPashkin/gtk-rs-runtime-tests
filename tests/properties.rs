@@ -1,3 +1,4 @@
+#![allow(deprecated)]
 extern crate glib;
 extern crate gtk;
 extern crate gtk_sys as ffi;
