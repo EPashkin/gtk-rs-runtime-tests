@@ -12,10 +12,8 @@ fn atoms() {
     // Predefined atom
     let atom = gdk::SELECTION_CLIPBOARD;
     assert_eq!(format!("{:?}", atom.to_glib_none().0), "0x45");
-/*
     assert_eq!(format!("{:?}", atom.name()), "\"CLIPBOARD\"");
-
-
+/*
     // Custom atom
     let atom2: gdk::Atom = "teststr".into();
     assert_eq!(format!("{:?}", atom2.name()), "\"teststr\"");
