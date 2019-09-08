@@ -13,9 +13,9 @@ fn radio_button() {
     assert_eq!(rb2.get_group(), vec![rb2.clone()]);
     let rb3 = RadioButton::new_with_mnemonic("_test");
     assert_eq!(rb3.get_group(), vec![rb3.clone()]);
-    rb1.join_group(&rb2);
+    rb1.join_group(Some(&rb2));
     assert_eq!(rb1.get_group(), vec![rb1.clone(), rb2.clone()]);
-    rb1.join_group(None);
+    rb1.join_group(gtk::NONE_RADIO_BUTTON);
     assert_eq!(rb1.get_group(), vec![rb1.clone()]);
     let rb4 = RadioButton::new_from_widget(&rb1);
     assert_eq!(rb4.get_group(), vec![rb4.clone(), rb1.clone()]);
