@@ -29,5 +29,5 @@ fn get_pointer(btn: &gtk::Button) -> *const gobject_sys::GObject {
 }
 
 fn get_ref_count(obj: *const gobject_sys::GObject) -> u32 {
-    unsafe { *(&(*obj).ref_count as *const glib_sys::Volatile<u32> as *const u32) }
+    unsafe { *(&(*obj).ref_count as *const u32) }
 }
