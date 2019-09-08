@@ -11,11 +11,11 @@ fn atoms() {
     // Predefined atom
     let atom = gdk::SELECTION_CLIPBOARD;
     assert_eq!(format!("{:?}", atom.to_glib_none().0), "0x45");
-    assert_eq!(format!("{:?}", atom.name()), "\"CLIPBOARD\"");
+    assert_eq!(format!("{:?}", atom.name().to_string()), "\"CLIPBOARD\"");
 
     // Custom atom
     let atom2: gdk::Atom = "teststr".into();
-    assert_eq!(format!("{:?}", atom2.name()), "\"teststr\"");
+    assert_eq!(format!("{:?}", atom2.name().to_string()), "\"teststr\"");
 
     // Vector passing
     let mut atoms = vec![&gdk::SELECTION_TYPE_BITMAP, &gdk::SELECTION_TYPE_PIXMAP];
