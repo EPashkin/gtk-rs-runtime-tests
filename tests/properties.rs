@@ -1,10 +1,12 @@
 #![allow(deprecated)]
 extern crate glib;
+extern crate gdk_pixbuf;
 extern crate gtk;
 extern crate gtk_sys as ffi;
 
 use gtk::prelude::*;
 use gtk::*;
+use gdk_pixbuf::*;
 
 #[test]
 fn properties() {
@@ -13,9 +15,9 @@ fn properties() {
     //let align = Alignment::new(0f32, 0f32, 1f32, 1f32);
     let cell_area_box = CellAreaBox::new();
     let combobox = ComboBox::new_with_area(&cell_area_box);
-    let cell_area = cell_area_box.upcast::<CellArea>();
     //let arrow = Arrow::new(ArrowType::Down, ShadowType::None);
-    //let vbox = gtk::Box::new(Orientation::Vertical, 0);
+    let image = Image::new();
+    let simple_anim = PixbufSimpleAnim::new(10,10, 10.0);
     /*
     //gfloat
     assert_eq!(0f32, align.get_property_xalign());
@@ -52,12 +54,8 @@ fn properties() {
     assert!(arrow.set_property("arrow-type", &ArrowType::Down).is_ok());
     assert_eq!(ArrowType::Down, arrow.get_property_arrow_type());
     */
-    //object get
-    assert_eq!(Some(cell_area), combobox.get_property_cell_area());
-    /*
-    //object set
-    assert_eq!(0usize, vbox.get_children().len());
-    vbox.set_property_child(Some(&arrow));
-    assert_eq!(1usize, vbox.get_children().len());
-    */
+
+    //object get/set child class
+    image.set_property_pixbuf_animation(Some(&simple_anim));
+    assert_eq!(image.get_property_pixbuf_animation(), Some(simple_anim.upcast()));
 }
